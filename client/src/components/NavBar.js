@@ -16,7 +16,7 @@ function NavBar({ user, onLogout }) {
         )}
       </div>
     </nav>
-  );
+  )
 }
 
-export default NavBar;
+export default NavBar

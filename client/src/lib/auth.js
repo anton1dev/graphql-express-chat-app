@@ -1,18 +1,18 @@
-import jwtDecode from 'jwt-decode';
+import jwtDecode from 'jwt-decode'
 
-const ACCESS_TOKEN_KEY = 'accessToken';
-const API_URL = 'http://localhost:9000';
+const ACCESS_TOKEN_KEY = 'accessToken'
+const API_URL = 'http://localhost:9000'
 
 export function getAccessToken() {
-  return localStorage.getItem(ACCESS_TOKEN_KEY);
+  return localStorage.getItem(ACCESS_TOKEN_KEY)
 }
 
 export function getUser() {
-  const token = getAccessToken();
+  const token = getAccessToken()
   if (!token) {
-    return null;
+    return null
   }
-  return getUserFromToken(token);
+  return getUserFromToken(token)
 }
 
 export async function login(username, password) {
@@ -22,20 +22,20 @@ export async function login(username, password) {
       'content-type': 'application/json',
     },
     body: JSON.stringify({ username, password }),
-  });
+  })
   if (response.ok) {
-    const { token } = await response.json();
-    localStorage.setItem(ACCESS_TOKEN_KEY, token);
-    return username;
+    const { token } = await response.json()
+    localStorage.setItem(ACCESS_TOKEN_KEY, token)
+    return username
   }
-  return null;
+  return null
 }
 
 export function logout() {
-  localStorage.removeItem(ACCESS_TOKEN_KEY);
+  localStorage.removeItem(ACCESS_TOKEN_KEY)
 }
 
 function getUserFromToken(token) {
-  const jwtPayload = jwtDecode(token);
-  return jwtPayload.sub;
+  const jwtPayload = jwtDecode(token)
+  return jwtPayload.sub
 }

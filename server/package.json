@@ -1,10 +1,15 @@
 {
   "name": "chat-server",
   "private": true,
-  "license": "MIT",
   "type": "module",
+  "engines": {
+    "node": "21.6.0"
+  },
   "scripts": {
-    "start": "nodemon server.js"
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write .",
+    "start": "npm i && node server.js"
   },
   "dependencies": {
     "@apollo/server": "^4.9.4",
@@ -23,7 +28,12 @@
     "ws": "^8.17.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "eslint": "^9.2.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "globals": "^15.1.0",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.2.5"
   },
   "nodemonConfig": {
     "ext": "graphql,js"
