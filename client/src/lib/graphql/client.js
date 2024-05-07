@@ -25,7 +25,7 @@ const authLink = new ApolloLink((operation, forward) => {
 
 const httpLink = concat(
   authLink,
-  createHttpLink({ uri: 'http://localhost:9000/graphql' }),
+  createHttpLink({ uri: 'https://graphql-chat-server-aa595544a3a1.herokuapp.com/graphql' }),
 )
 
 const wsLink = new GraphQLWsLink(

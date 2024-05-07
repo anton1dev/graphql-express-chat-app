@@ -51,5 +51,5 @@ useWsServer({ schema, context: getWsContext }, wsServer);
 
 httpServer.listen({ port: PORT }, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
-  console.log(`GraphQL endpoint: http://localhost:${PORT}/graphql`);
+  console.log(`GraphQL endpoint: https://graphql-chat-server-aa595544a3a1.herokuapp.com:${PORT}/graphql`);
 });
