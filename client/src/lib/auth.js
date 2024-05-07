@@ -1,7 +1,7 @@
 import jwtDecode from 'jwt-decode'
 
 const ACCESS_TOKEN_KEY = 'accessToken'
-const API_URL = 'https://graphql-chat-server-aa595544a3a1.herokuapp.com/'
+const API_URL = 'https://graphql-chat-server-aa595544a3a1.herokuapp.com'
 
 export function getAccessToken() {
   return localStorage.getItem(ACCESS_TOKEN_KEY)
