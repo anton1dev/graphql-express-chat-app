@@ -30,7 +30,7 @@ const httpLink = concat(
 
 const wsLink = new GraphQLWsLink(
   createWsClient({
-    url: 'ws://localhost:9000/graphql',
+    url: 'ws://graphql-chat-server-aa595544a3a1.herokuapp.com/graphql',
     connectionParams: () => ({ accessToken: getAccessToken() }),
   }),
 )
