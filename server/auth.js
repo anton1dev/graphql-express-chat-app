@@ -1,4 +1,5 @@
 import { expressjwt } from 'express-jwt';
+import httpStatus from 'http-status';
 import jwt from 'jsonwebtoken';
 import { getUser } from './db/users.js';
 
@@ -18,7 +19,7 @@ export async function handleLogin(req, res) {
   const { username, password } = req.body;
   const user = await getUser(username);
   if (!user || user.password !== password) {
-    res.sendStatus(401);
+    res.sendStatus(httpStatus.UNAUTHORIZED);
   } else {
     const claims = { sub: username };
     const token = jwt.sign(claims, secret);
